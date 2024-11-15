@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Attendance Percentage</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto p-4">
+        <div class="bg-white shadow-md rounded-lg p-6 mb-4">
+            <h2 class="text-2xl font-bold mb-2"><%= student.name %></h2>
+            <p class="text-gray-700">USN: <%= student.usn %></p>
+            <p class="text-gray-700">Attendance Percentage: <%= attendancePercentage.toFixed(2) %> %</p>
+            <div class="mt-4">
+                <h3 class="text-xl font-semibold mb-2">Attendance Records:</h3>
+                <% student.attendance.forEach(record => { %>
+                    <p class="text-gray-600">Date: <%= new Date(record.date).toLocaleDateString() %> - Status: <%= record.attends ? 'Present' : 'Absent' %></p>
+                <% }) %>
+            </div>
+        </div>
+        <a href="/" class="inline-block bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600 transition duration-300">Back to Home</a>
+    </div>
+</body>
+</html>
